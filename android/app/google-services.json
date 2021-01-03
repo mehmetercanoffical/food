@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1041309736107",
+    "project_id": "foodfprevery",
+    "storage_bucket": "foodfprevery.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041309736107:android:bc1237436167ac89026bee",
+        "android_client_info": {
+          "package_name": "com.example.food"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041309736107-fvop9su5sais4re9r4ve5rmjh7e5v0lf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.food",
+            "certificate_hash": "45e4ae7f7c4473e29809a0987f867c08780ed95b"
+          }
+        },
+        {
+          "client_id": "1041309736107-55m9jcldt5kd7ps8n5p4khprs49ke72s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfI2t5mjFaaZxMaRy4BSfsMRCV5Yl7LFA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041309736107-55m9jcldt5kd7ps8n5p4khprs49ke72s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

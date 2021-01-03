@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TextCenterMe extends StatelessWidget {
+class TextCenter extends StatelessWidget {
   final Function press;
   final String text;
   final Color color;
@@ -8,7 +8,7 @@ class TextCenterMe extends StatelessWidget {
   final double size;
   final Alignment align;
 
-  const TextCenterMe(
+  const TextCenter(
       {Key key,
       this.press,
       this.text,

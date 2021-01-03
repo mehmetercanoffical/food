@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:food/pages/login/homeLogin.dart';
+import 'package:food/services/auth/streamAuth.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,8 +15,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeLogin(),
+      home: StreamAuthProvider(),
     );
   }
 }
-
