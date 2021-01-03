@@ -3,6 +3,7 @@ import 'package:food/modals/users.dart';
 import 'package:food/pages/login/singUp.dart';
 import 'package:food/services/auth/authacation.dart';
 import 'package:food/services/auth/streamAuth.dart';
+import 'package:food/services/cloud/cloud.dart';
 import 'package:food/widget/buttonCenter.dart';
 import 'package:food/widget/textCenter.dart';
 import 'package:food/widget/textFrom.dart';
@@ -182,7 +183,14 @@ class _LoginState extends State<Login> {
         isLoading = true;
       });
       try {
-        await authacation.singIn(email, password);
+        Users user = await authacation.singIn(email, password);
+        if (user != null) {
+          Users users = await CloudStore().cloudUserGet(id: user.id);
+          if (users == null) {
+            print("kullanici bulunamadı");
+          }
+        }
+
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => StreamAuthProvider()));
       } catch (e) {
@@ -200,7 +208,20 @@ class _LoginState extends State<Login> {
 
     print("google calışıoyr");
     try {
-      await authacation.google();
+      Users users = await authacation.google();
+      if (users != null) {
+        Users user = await CloudStore().cloudUserGet(id: users.id);
+        if (user == null) {
+          print("cloudcreate çalışıyor");
+          CloudStore().cloudUserCreate(
+              id: users.id,
+              email: users.email,
+              name: users.name,
+              photoUrl: users.photoUrl);
+        }
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => StreamAuthProvider()));
+      }
     } catch (e) {
       setState(() {
         isLoading = false;

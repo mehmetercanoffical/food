@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Users {
@@ -17,5 +18,14 @@ class Users {
       details: "",
       photoUrl: user.photoUrl,
     );
+  }
+
+  factory Users.cloudCreateUser({DocumentSnapshot doc}) {
+    return Users(
+        id: doc.documentID,
+        name: doc.data["name"],
+        email: doc.data["email"],
+        photoUrl: doc.data["email"],
+        details: doc.data["details"]);
   }
 }

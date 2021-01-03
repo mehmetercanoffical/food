@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food/modals/users.dart';
 import 'package:food/pages/login/homeLogin.dart';
-//import 'package:food/pages/page/home.dart';
-import 'package:food/pages/page/onHome.dart';
+import 'package:food/pages/page/home.dart';
+import 'package:food/pages/onHome.dart';
 import 'package:food/services/auth/authacation.dart';
 
 class StreamAuthProvider extends StatelessWidget {
@@ -17,7 +17,7 @@ class StreamAuthProvider extends StatelessWidget {
           if (snapshot.hasData) {
             Users users = snapshot.data;
             Authacation().activeUser = users.id;
-            return OnHome();
+            return Home();
           } else {
             return HomeLogin();
           }

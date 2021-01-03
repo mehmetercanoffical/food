@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food/services/auth/authacation.dart';
 import 'package:food/widget/textCenter.dart';
 
 class OnHome extends StatelessWidget {
@@ -28,9 +27,7 @@ class OnHome extends StatelessWidget {
                 TextCenter(
                   align: Alignment.centerLeft,
                   color: Colors.white,
-                  press: () {
-                    Authacation().singOut();
-                  },
+                  press: () {},
                   size: 65,
                   text: "Food for\nEveryone",
                   weight: FontWeight.bold,
