@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:food/pages/page/card.dart';
 import 'package:food/pages/page/products/products.dart';
 import 'package:food/pages/page/search.dart';
+import 'package:food/services/auth/authacation.dart';
 import 'package:food/widget/iconCenter.dart';
 import 'package:food/widget/searchCenter.dart';
 import 'package:food/widget/textCenter.dart';
 
 class Home extends StatefulWidget {
+  final userIdHome;
+
+  const Home({Key key, this.userIdHome}) : super(key: key);
   @override
   _HomeState createState() => _HomeState();
 }
@@ -26,26 +31,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     controller.clear();
   }
 
-  List<Widget> iconData = [
-    IconButton(
-        icon: Icon(Icons.home, size: 30, color: Color(0xffFA4A0C)),
-        onPressed: () {}),
-    IconButton(
-        icon: Icon(
-          Icons.send_rounded,
-          size: 20,
-          color: Color(0xffB1B1B3),
-        ),
-        onPressed: () {}),
-    IconButton(
-      icon: Icon(Icons.shop_outlined, size: 20, color: Color(0xffB1B1B3)),
-      onPressed: () {},
-    ),
-    IconButton(
-      icon: Icon(Icons.person, size: 20, color: Color(0xffB1B1B3)),
-      onPressed: () {},
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,11 +57,18 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           children: [
                             IconButton(
                               icon: Icon(Icons.menu),
-                              onPressed: () {},
+                              onPressed: () {
+                                Authacation().singOut();
+                              },
                             ),
                             IconButton(
                               icon: Icon(Icons.shop),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AddCard()));
+                              },
                             ),
                           ],
                         ),
@@ -106,18 +98,22 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       ],
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
+                  InkWell(
+                    child: Align(
                       alignment: Alignment.bottomCenter,
-                      height: 390,
-                      child: product[current],
+                      child: Container(
+                        alignment: Alignment.bottomCenter,
+                        height: 390,
+                        child: product[current],
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
-            IconCenter(),
+            IconCenter(
+              personId: widget.userIdHome,
+            ),
           ],
         ),
       ),

@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:food/modals/users.dart';
+import 'package:food/pages/page/person.dart';
 
 class IconCenter extends StatelessWidget {
-  final IconData iconData;
-  final Function press;
-  const IconCenter({
-    Key key,
-    this.iconData,
-    this.press,
-  }) : super(key: key);
+  final String personId;
 
+  const IconCenter({Key key, this.personId}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    String userId = Users().id;
+    print(userId);
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
@@ -41,7 +40,14 @@ class IconCenter extends StatelessWidget {
             ),
             IconButton(
               icon: Icon(Icons.person, size: 20, color: Color(0xffB1B1B3)),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Person(
+                              userId: personId,
+                            )));
+              },
             ),
           ],
         ),

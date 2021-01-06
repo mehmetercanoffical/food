@@ -6,6 +6,7 @@ import 'package:food/pages/onHome.dart';
 import 'package:food/services/auth/authacation.dart';
 
 class StreamAuthProvider extends StatelessWidget {
+  Users user = Users();
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -17,7 +18,11 @@ class StreamAuthProvider extends StatelessWidget {
           if (snapshot.hasData) {
             Users users = snapshot.data;
             Authacation().activeUser = users.id;
-            return Home();
+            // print(Authacation().activeUser);
+            //print(user.id);
+            return Home(
+              userIdHome: users.id,
+            );
           } else {
             return HomeLogin();
           }

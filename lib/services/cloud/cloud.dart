@@ -25,4 +25,19 @@ class CloudStore {
     }
     return null;
   }
+
+  Future<void> productDetailsWrite({title, imgUrl, descp, id, bounc}) async {
+    await cloud.collection("productDetails").document(id).setData({
+      "id": id,
+      "title": title,
+      "imgUrl": imgUrl,
+      "descp": descp,
+      "bounc": bounc,
+    });
+  }
+
+  Future<void> productGet(id) async {
+    DocumentSnapshot snapshot =
+        await cloud.collection("productDetails").document(id).get();
+  }
 }

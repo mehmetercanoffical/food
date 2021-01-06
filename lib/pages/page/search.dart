@@ -21,12 +21,28 @@ class _SearchState extends State<Search> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SearchCenter(
-            controller: controller,
-            icon: Icons.search,
-            press: () {},
-            title: widget.text,
-          )
+          Row(
+            children: [
+              IconButton(
+                icon: Icon(
+                  Icons.arrow_back,
+                  size: 30,
+                  color: Color(0xffB1B1B3),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              Expanded(
+                child: SearchCenter(
+                  controller: controller,
+                  icon: Icons.search,
+                  press: () {},
+                  title: widget.text,
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     )));

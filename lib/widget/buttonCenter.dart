@@ -25,7 +25,7 @@ class ButtonCenter extends StatelessWidget {
         child: Container(
           alignment: Alignment.center,
           width: double.infinity,
-          height: 55,
+          height: 60,
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(30),

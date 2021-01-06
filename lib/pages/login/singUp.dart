@@ -74,7 +74,7 @@ class _SingUpState extends State<SingUp> {
                                 validate: (value) {
                                   if (value.isEmpty) {
                                     return "You are use add name label";
-                                  } else if (value.trim().length < 6) {
+                                  } else if (value.trim().length < 4) {
                                     return "You are wrong name";
                                   }
                                   return null;
